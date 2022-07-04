@@ -1,4 +1,9 @@
 <?php
+  ini_set('display_errors', 0);
+
+  ini_set('display_startup_errors', 0);
+
+  error_reporting(0);
 $version = '1.7.0';
 define("IN_SCRIPT", true);
 
@@ -76,7 +81,7 @@ switch ($url_param_get_action) {
         $output["nextdiff_display"] = "";
     case "height":
         //baseinfo
-        $info = $bitcoinrpc->getinfo();
+        $info = $bitcoinrpc->getblockchaininfo();
         if ($bitcoinrpc->status !== 200 && $bitcoinrpc->error !== '') {
             exit($bitcoinrpc->error);
         }
